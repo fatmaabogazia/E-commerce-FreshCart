@@ -1,14 +1,20 @@
 import { getAllOrders } from '@/api/getAllOrders.api';
 import { OrderType } from '@/types/Order.type';
-import { getVerifyTokenFun } from '@/Utilities/getVerifyToken';
+import { getMyToken } from '@/Utilities/getMyToken';
+import axios from 'axios';
 import Link from 'next/link';
 
 
 export default async function page() {
 
-    const data = await getVerifyTokenFun()    
+    const token = await getMyToken()
 
-    const idUser = data?.data.decoded.id
+    const data = await axios.get("https://ecommerce.routemisr.com/api/v1/auth/verifyToken", {
+        headers: {
+            token
+        }
+    })
+    const idUser = data.data.decoded.id
 
     const orders = await getAllOrders(idUser)
 
