@@ -1,20 +1,14 @@
 import { getAllOrders } from '@/api/getAllOrders.api';
 import { OrderType } from '@/types/Order.type';
-import { getMyToken } from '@/Utilities/getMyToken';
-import axios from 'axios';
+import { getVerifyTokenFun } from '@/Utilities/getVerifyToken';
 import Link from 'next/link';
 
 
 export default async function page() {
 
-    const token = await getMyToken()
+    const data = await getVerifyTokenFun()    
 
-    const data = await axios.get("https://ecommerce.routemisr.com/api/v1/auth/verifyToken", {
-        headers: {
-            token
-        }
-    })
-    const idUser = data.data.decoded.id
+    const idUser = data?.data.decoded.id
 
     const orders = await getAllOrders(idUser)
 
@@ -31,19 +25,19 @@ export default async function page() {
                         <table className="w-full text-sm rtl:text-right text-body text-center rounded-xl overflow-hidden">
                             <thead className="text-sm text-body bg-violet-400 border-b border-default ">
                                 <tr>
-                                    <th scope="col" className= "px-2 lg:px-4 xl:px-6  py-3 font-medium">
+                                    <th scope="col" className="px-2 lg:px-4 xl:px-6  py-3 font-medium">
                                         Order Id
                                     </th>
-                                    <th scope="col" className= "px-2 lg:px-4 xl:px-6  py-3 font-medium">
+                                    <th scope="col" className="px-2 lg:px-4 xl:px-6  py-3 font-medium">
                                         Type
                                     </th>
-                                    <th scope="col" className= "px-2 lg:px-4 xl:px-6  py-3 font-medium">
+                                    <th scope="col" className="px-2 lg:px-4 xl:px-6  py-3 font-medium">
                                         Total Price
                                     </th>
-                                    <th scope="col" className= "px-2 lg:px-4 xl:px-6  py-3 font-medium">
+                                    <th scope="col" className="px-2 lg:px-4 xl:px-6  py-3 font-medium">
                                         Items
                                     </th>
-                                    <th scope="col" className= "px-2 lg:px-4 xl:px-6  py-3 font-medium">
+                                    <th scope="col" className="px-2 lg:px-4 xl:px-6  py-3 font-medium">
                                         Created At
                                     </th>
                                 </tr>

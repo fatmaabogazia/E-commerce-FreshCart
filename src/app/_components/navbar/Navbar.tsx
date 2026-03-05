@@ -130,9 +130,9 @@ export default function Navbar() {
             </div>
 
             <div className="flex items-center">
-              {status == "loading" ? <h3 className="text-lg font-semibold">Hello ,</h3> :
-                status == "authenticated" ? <div className="flex gap-1 md:gap-3 xl:gap-5 items-center "><Link href={"/wishlist"}> <i className="fa-regular fa-heart cursor-pointer text-md lg:text-xl font-semibold"></i> </Link>
-                  <h3 className="text-sm md:text-lg font-semibold ">Hello , <span className="text-emerald-500 ">{(session?.user.name).split(" ")[0]}</span></h3>
+              {status == "loading" ? <h3 className="text-lg font-semibold"> </h3> :
+                status == "authenticated" ? <div className="flex gap-1 md:gap-3 xl:gap-5 items-center "><Link href={"/wishlist"} aria-label="Wishlist"> <i className="fa-regular fa-heart cursor-pointer text-md lg:text-xl font-semibold"></i> </Link>
+                  <h3 className="text-sm md:text-lg font-semibold ">Hello , <span className="text-emerald-600 ">{(session?.user.name).split(" ")[0]}</span></h3>
                   <span className="text-sm font-semibold cursor-pointer" onClick={logOut}><span className="hidden lg:inline">Sign Out</span><span className="lg:hidden"><i className="fa-solid fa-arrow-right-from-bracket"></i> </span> </span> </div> :
                   <ul className="flex gap-3 xl:gap-5 items-center">
                     <li className="text-gray-500">

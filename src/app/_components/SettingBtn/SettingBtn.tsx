@@ -21,7 +21,7 @@ export default function SettingBtn() {
         <>
             {status === "authenticated" && <DropdownMenu open={openMenu} onOpenChange={setOpenMenu}>
                 <DropdownMenuTrigger asChild>
-                    <Button variant="outline" className='rounded-full text-white bg-emerald-300 flex p-4 size-6 fixed start-5 top-20 z-20 hover:bg-emerald-500 hover:text-white cursor-pointer'>
+                    <Button aria-label="Setting Button" variant="outline" className='rounded-full text-white bg-emerald-300 flex p-4 size-6 fixed start-5 top-20 z-20 hover:bg-emerald-500 hover:text-white cursor-pointer'>
                         {openMenu ? <i className="fa-solid fa-x"></i> : <i className="fa-solid fa-gear"></i>} </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>

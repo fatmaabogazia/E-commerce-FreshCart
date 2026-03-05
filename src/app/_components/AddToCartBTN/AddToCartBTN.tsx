@@ -19,7 +19,7 @@ export default function AddToCartBTN({ id }: { id: string }) {
                 toast.error(res.message, { position: "top-center" })
             }
         } catch (error) {
-            // toast.error("You Must Logged First", { position: "top-center" })
+            toast.error("You Must Logged First", { position: "top-center" })
             console.log(error)
         }
 

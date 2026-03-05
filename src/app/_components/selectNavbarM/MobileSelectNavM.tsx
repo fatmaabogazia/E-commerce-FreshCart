@@ -15,6 +15,7 @@ export default function MobileSelectNavM() {
 
   return (
     <NativeSelect
+      aria-label="Pages SelectOption Navbar"
       defaultValue={""}
       onChange={(event) => {
         const value = event.currentTarget.value;

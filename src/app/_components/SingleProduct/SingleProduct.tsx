@@ -1,4 +1,4 @@
-// "use client" // ==> علشان ال onClick بس مينعش نحطه هناا علشان كدااا ال seo مش هيشوفه
+// "use client" // ==> علشان ال onClick ==> بس مينعش نحطه هناا علشان كدااا ال seo مش هيشوفه
 
 import {
     Card,
@@ -13,6 +13,7 @@ import Image from 'next/image';
 import { Producttype } from '@/types/Products.type';
 import AddToCartBTN from "../AddToCartBTN/AddToCartBTN";
 import AddToWishlist from "../AddToWishlist/AddToWishlist";
+import AddToWishlistBTNProdDetails from "../AddToWishlistBTNProdDetails/AddToWishlistBTNProdDetails";
 
 export default function SingleProduct({ prod }: { prod: Producttype }) {
 
@@ -22,7 +23,14 @@ export default function SingleProduct({ prod }: { prod: Producttype }) {
                 <Link href={`/products/${prod.id}`} key={prod.id}>
                     <CardHeader>
                         <CardTitle ><Image src={prod.imageCover} alt="image product" className='w-full ' width={200} height={200} /></CardTitle>
-                        <CardDescription className="text-emerald-500">{prod.category.name}</CardDescription>
+
+                        <CardDescription className="text-emerald-500 hidden lg:inline-block">{prod.category.name}</CardDescription>
+
+                        <div className="flex justify-between lg:hidden">
+                            <CardDescription className="text-emerald-500">{prod.category.name}</CardDescription>
+                            <AddToWishlistBTNProdDetails id={prod.id} />
+                        </div>
+                        
                         <CardDescription className="font-semibold text-large line-clamp-1">{prod.title}</CardDescription>
                     </CardHeader>
                     <CardContent className="flex justify-between">
@@ -33,7 +41,7 @@ export default function SingleProduct({ prod }: { prod: Producttype }) {
                 <CardFooter>
                     <AddToCartBTN id={prod.id} />
                 </CardFooter>
-                <AddToWishlist id={prod.id}/>
+                <AddToWishlist id={prod.id} />
             </Card>
         </>
     )

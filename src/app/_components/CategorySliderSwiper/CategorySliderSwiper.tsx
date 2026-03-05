@@ -12,11 +12,12 @@ export default function CategorySliderSwiper({ category }: { category: CategoryT
     return (
         <>
             <Swiper
+                // lazy={false}
                 spaceBetween={0}
                 // slidesPerView={5}
                 modules={[Autoplay]}
                 autoplay={{
-                    delay: 600
+                    delay: 2000
                 }}
                 breakpoints={{
 
@@ -34,9 +35,9 @@ export default function CategorySliderSwiper({ category }: { category: CategoryT
                     }
                 }}
             >
-                {category.map((categ:CategoryType) => {
+                {category.map((categ: CategoryType) => {
                     return <SwiperSlide key={categ?._id}>
-                        <Image src={categ.image} alt='category image' className='w-full object-center h-50 mt-5' width={200} height={200} />
+                        <Image priority src={categ.image} alt='category image' className='w-full object-center h-50 mt-5' width={500} height={500} />
                         <p className='text-emerald-500 font-semibold pl-3'>{categ.name}</p>
                     </SwiperSlide>
                 })}

@@ -21,7 +21,7 @@ export default function MainSlider() {
                         slidesPerView={1}
                         modules={[Autoplay]}
                         autoplay={{
-                            delay: 1000
+                            delay: 2000
                         }}
                     >
                         <SwiperSlide><Image priority src={img3} alt='slider image' className='w-full object-center h-100' /></SwiperSlide>
